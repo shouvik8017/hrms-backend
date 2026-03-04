@@ -9,7 +9,7 @@
     "start": "node --watch server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "SHOUVIK DAS",
   "license": "ISC",
   "packageManager": "pnpm@10.30.0",
   "dependencies": {
