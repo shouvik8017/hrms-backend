@@ -28,7 +28,7 @@ A modern, scalable backend API for managing organizational resources, employees,
    ```bash
    git clone https://github.com/shouvik8017/hrms-backend.git
    cd hrms-backend
-2. **Install package dependencies**
+2. **Install all packages**
     ```bash
     pnpm i
 3. **Start the server**

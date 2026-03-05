@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import { dbconnection } from './src/config/db.config.js'
 import { adminseed } from './src/utils/admin.seed.js';
+import chalk from 'chalk';
+import { masterRouter } from "./src/config/master.route.js";
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -15,10 +17,11 @@ dbconnection();
 adminseed();
 
 app.get('/', (req, res) => {
-    console.log("Working...");
-    res.status(200).json({message: "working"});
+    res.send('Hi home');
 });
 
+app.use('/api/v1', masterRouter);
+
 app.listen(port, () => {
-    console.log(`Server started on http://localhost:${port}`);
+    console.log(chalk.green(`Server started on http://localhost:${port}`));
 });
