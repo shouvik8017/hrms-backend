@@ -1,16 +1,16 @@
 const validationRequest = (schema) => {
-    return (req, res, next) => {
-        const { error } = schema.validate(req.body);
+  return (req, res, next) => {
+    const { error } = schema.validate(req.body);
 
-        if(error){
-            return res.status(400).json({
-                success: false,
-                message: error.message,
-                data: {}
-            });
-        }
-        next();
+    if (error) {
+      return res.status(400).json({
+        success: false,
+        message: error.message,
+        data: {},
+      });
     }
-}
+    next();
+  };
+};
 
 export default validationRequest;

@@ -1,6 +1,6 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import { loginRouter } from "../routes/authentication.route.js";
+import { loginRouter } from '../routes/authentication.route.js';
 
 export const masterRouter = Router();
 
