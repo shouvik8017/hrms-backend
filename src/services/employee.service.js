@@ -1,4 +1,4 @@
-import User from "../models/user.model";
+import User from "../models/user.model.js";
 import bycrypt from "bcrypt";
 
 export async function createEmployeeService(employeeData) {
