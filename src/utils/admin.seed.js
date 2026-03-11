@@ -3,17 +3,16 @@ import bcrypt from 'bcrypt';
 import chalk from 'chalk';
 
 export async function adminseed() {
-  if (process.env.ENVIRONMENT === 'development') {
+  if (process.env.NODE_ENV === 'development') {
     try {
       const getAdminData = await User.findOne({
         role: 'admin',
       });
 
-      console.log(chalk.yellow(`admin details: ${getAdminData}`));
-
-      const hashedPassword = await bcrypt.hash('admin@123', 12);
+      console.log(chalk.yellow(`[ADMIN DETAILS]: ${getAdminData}`));
 
       if (!getAdminData) {
+        const hashedPassword = await bcrypt.hash('admin@123', 12);
         const response = await User.create({
           username: 'Admin',
           fullname: 'shouvik das',
@@ -23,12 +22,12 @@ export async function adminseed() {
 
         console.log(
           chalk.green(
-            `Admin details created successfully. Details: ${response}`
+            `[ADMIN DETAILS CREATED]: ${response}`
           )
         );
       }
     } catch (error) {
-      console.error(chalk.red(`Error while creating admin: ${error}`));
+      console.error(chalk.red(`[ERROR WHILE CREATING ADMIN]: ${error}`));
     }
   }
 }

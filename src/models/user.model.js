@@ -22,8 +22,16 @@ const userSchema = new Schema(
     },
     role: {
       type: String,
-      enum: ['admin', 'employee', 'manager'],
+      enum: ['admin', 'employee', 'manager', 'hr'],
       default: 'employee',
+    },
+    designation: {
+      type: String,
+      required: [true, 'Designation field is required'],
+    },
+    department: {
+      type: String,
+      required: [true, 'Department field is required'],
     },
   },
   {

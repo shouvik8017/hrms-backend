@@ -12,3 +12,12 @@ export const verifyToken = (req, res, next) => {
     res.status(401).json({ message: 'Invalid Token' });
   }
 };
+
+
+export const authorizeRole = (role = []) => {
+  if(typeof role === 'string') role = [role];
+  return (req, res, next) => {
+    if(!role.includes(req.user.role)) return res.status(403).json({message: 'Unauthorized'});
+    next();
+  };
+};
