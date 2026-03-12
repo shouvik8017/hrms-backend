@@ -8,3 +8,13 @@ export const employeeCreationSchema = Joi.object({
     designation: Joi.string().max(100).required(),
     department: Joi.string().max(100).required()
 });
+
+export const employeeUpdateSchema = Joi.object({
+    id: Joi.string().required(),
+    username: Joi.string().min(3).max(20),
+    password: Joi.string().min(6).max(100),
+    fullname: Joi.string().min(2).max(100),
+    role: Joi.string().valid('employee', 'manager', 'hr'),
+    designation: Joi.string().max(100),
+    department: Joi.string().max(100)
+});
